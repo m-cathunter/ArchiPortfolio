@@ -3,16 +3,16 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.build
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
   end
 
   private
       def project_params
       params.require(:project).permit(:title, :description, :author)
-      end 
+      end
 
 end

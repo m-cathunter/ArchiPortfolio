@@ -2,12 +2,20 @@ class ProjectsController < ApplicationController
   def index
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def new
-    @project = current_user.projects.build
+  #  @project = current_user.projects.build
   end
 
   def create
-    @project = current_user.projects.build(project_params)
+    @project = Project.new(project_params)
+
+    @project.save
+    redirect_to @project
+  #  @project = current_user.projects.build(project_params)
   end
 
   private

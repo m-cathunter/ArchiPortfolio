@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   def index
+    @projects = Project.all
   end
 
   def show
@@ -20,7 +21,7 @@ class ProjectsController < ApplicationController
 
   private
       def project_params
-      params.require(:project).permit(:title, :description, :author)
+        params.require(:project).permit(:title, :description, :author)
       end
 
 end

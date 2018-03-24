@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @projects = Project.all
   end
@@ -13,8 +14,9 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-
+    @project.user=current_user
     @project.save
+    binding.pry
     redirect_to @project
   #  @project = current_user.projects.build(project_params)
   end

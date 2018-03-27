@@ -9,19 +9,19 @@ class ProjectsController < ApplicationController
   end
 
   def new
-  #  @project = current_user.projects.build
+    @project = current_user.projects.build
   end
 
   def create
     @project = Project.new(project_params)
     @project.user=current_user
   if @project.save
-    redirect_to @projects
+    redirect_to @project
   else
     render 'new'
   end
-    binding.pry
-    redirect_to @project
+  #  binding.pry
+    #redirect_to @project
   #  @project = current_user.projects.build(project_params)
   end
 

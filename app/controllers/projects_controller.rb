@@ -15,7 +15,11 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @project.user=current_user
-    @project.save
+  if @project.save
+    redirect_to @projects
+  else
+    render 'new'
+  end
     binding.pry
     redirect_to @project
   #  @project = current_user.projects.build(project_params)

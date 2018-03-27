@@ -13,17 +13,30 @@ class ProjectsController < ApplicationController
   end
 
   def edit
-    @project = Project.new(project_params)
+    @project = Project.find(params[:id])
   end
 
   def create
     @project = Project.new(project_params)
     @project.user=current_user
-  if @project.save
-    redirect_to @project
-  else
-    render 'new'
+
+    if @project.save
+      redirect_to @project
+    else
+      render 'new'
+    end
   end
+
+  def update
+    @project = Project.find(params[:id])
+    @project.user=current_user
+
+    if @project.update(project_params)
+      redirect_to @project
+    else
+      render 'edit'
+    end
+
   #  binding.pry
     #redirect_to @project
   #  @project = current_user.projects.build(project_params)
@@ -33,5 +46,4 @@ class ProjectsController < ApplicationController
       def project_params
         params.require(:project).permit(:title, :description, :author)
       end
-
 end

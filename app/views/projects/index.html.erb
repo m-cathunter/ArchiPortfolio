@@ -10,8 +10,7 @@
 
   <% @projects.each do |project| %>
     <tr>
-      <td><%= project.title %></td>
-      <td><%= project.description %></td>
+      <td><%= project.title %></td>    
       <td><%= project.author %></td>
       <td><%= link_to 'Show', project_path(project) %></td>
     </tr>

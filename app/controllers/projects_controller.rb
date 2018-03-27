@@ -12,6 +12,10 @@ class ProjectsController < ApplicationController
     @project = current_user.projects.build
   end
 
+  def edit
+    @project = Project.new(project_params)
+  end
+
   def create
     @project = Project.new(project_params)
     @project.user=current_user

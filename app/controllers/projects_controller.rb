@@ -35,7 +35,14 @@ class ProjectsController < ApplicationController
       redirect_to @project
     else
       render 'edit'
-    end
+  end
+
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+
+    redirect_to projects_path
+  end
 
   #  binding.pry
     #redirect_to @project

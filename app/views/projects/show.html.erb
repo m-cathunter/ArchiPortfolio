@@ -15,6 +15,8 @@
 
 <%= link_to 'Back', projects_path %>
 
+<% if user_signed_in? %>
+
 <% if @project.user_id == current_user.id %>
 
 <%= link_to 'Edit', edit_project_path(@project) %>
@@ -23,4 +25,5 @@
             method: :delete,
             data: { confirm: "Are you sure?" } %>
 
+<%end%>
 <%end%>

@@ -1,17 +1,13 @@
 <h1>List of projects</h1>
 
 <table>
-  <tr>
-    <th>Title</th>
-
-    <th>Author</th>
-  </tr>
+  
 
   <% @projects.each do |project| %>
     <tr>
-      <td><%= project.title %></td>
-      <td><%= project.author %></td>
-      <td><%= link_to 'Show', project_path(project) %></td>
+    <a href="/projects/<%= project.id %>">
+      <%= image_tag project.project_img.url(:project_index)%>
+    </a>
     </tr>
   <% end %>
 </table>

@@ -34,19 +34,20 @@ class ProjectsController < ApplicationController
       redirect_to @project
     else
       render 'edit'
+    end
   end
 
   def destroy
     @project = Project.find(params[:id])
     @project.destroy
 
-    redirect_to project_path
+    redirect_to root_path
   end
 
   #  binding.pry
     #redirect_to @project
   #  @project = current_user.projects.build(project_params)
-  end
+
 
   private
       def project_params

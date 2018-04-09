@@ -1,17 +1,21 @@
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+<div class="row">
+  <p>
+    <strong>Title:</strong>
+    <%= @project.title %>
+  </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+  <p>
+    <strong>Description:</strong>
+    <%= @project.description %>
+  </p>
 
-<p>
-  <strong>Author:</strong>
-  <%= @project.author %>
-</p>
+  <p>
+    <strong>Author:</strong>
+    <%= @project.author %>
+  </p>
+
+  <%= image_tag @project.project_img.url(:project_show), class: "project-show"%>
+</div>
 
 <%= link_to 'Back', projects_path %>
 

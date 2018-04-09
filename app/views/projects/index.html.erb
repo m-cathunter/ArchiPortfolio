@@ -1,13 +1,12 @@
 <h1>List of projects</h1>
 
-<table>
-  
+<div class="row">
 
   <% @projects.each do |project| %>
-    <tr>
-    <a href="/projects/<%= project.id %>">
-      <%= image_tag project.project_img.url(:project_index)%>
-    </a>
-    </tr>
+    <div class="col-md-3">
+      <a href="/projects/<%= project.id %>">
+        <%= image_tag project.project_img.url(:project_index), class: "project" %>
+      </a>
+    </div>
   <% end %>
-</table>
+</div>

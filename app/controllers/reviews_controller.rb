@@ -1,5 +1,4 @@
 class ReviewsController < ApplicationController
-
   before_action :find_project
 
   def new
@@ -7,17 +6,16 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.project_id = @project.id
-    @review.user_id = current_user.id
-  end
+      @review = Review.new(review_params)
+      @review.project_id = @project.id
+      @review.user_id = current_user.id
 
-  if @review.save
-    redirect_to project_path(@project)
-  else
-    render 'new'
+    if @review.save
+      redirect_to project_path(@project)
+    else
+      render 'new'
+    end
   end
-
   private
 
   def review_params

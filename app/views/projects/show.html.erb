@@ -20,6 +20,8 @@
 
   <div class="col-md-4">
 
+    <%= render @project.reviews %>
+
       <div>
         <%= link_to "Add Review", new_project_review_path(@project) %>
       </div>

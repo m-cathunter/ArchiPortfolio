@@ -1,0 +1,5 @@
+<%= form_for ([@project, @project.comments.build]) do |f| %>
+  <%= f.input :rating %>
+  <%= f.input :comment %>
+  <%= f.input :submit %>
+<% end %>

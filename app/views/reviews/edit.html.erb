@@ -1,0 +1,18 @@
+<h1>Edit Review</h1>
+
+<%= form_for ([@project, @review]) do |f| %>
+  <p>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+  </p>
+
+  <p>
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+  </p>
+
+  <p>
+  <%= f.submit %>
+  </p>
+
+<% end %>

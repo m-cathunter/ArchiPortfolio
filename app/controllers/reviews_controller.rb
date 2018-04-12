@@ -28,6 +28,7 @@ class ReviewsController < ApplicationController
       redirect_to project_path(@project)
     else
       render 'edit'
+    end
   end
 
   private

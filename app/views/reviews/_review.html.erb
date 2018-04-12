@@ -1,2 +1,5 @@
 <p><%= review.rating %></p>
 <p><%= review.comment %></p>
+
+<%= link_to 'Edit', edit_project_review_path(review.project, review) %>
+<%= link_to 'Delete', project_review_path(review.project, review), method: :delete, data: {confirm: "Are you sure?"} %>

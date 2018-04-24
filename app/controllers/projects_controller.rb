@@ -10,6 +10,7 @@ class ProjectsController < ApplicationController
 
   def new
     @project = current_user.projects.build
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def edit

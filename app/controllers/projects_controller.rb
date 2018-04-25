@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def create
@@ -31,6 +32,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @project.user=current_user
+    @project.category_id = params[:category_id]
 
     if @project.update(project_params)
       redirect_to @project

@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = current_user.projects.build(project_params)
+    @project.category_id = params[:category_id]
 
     if @project.save
       redirect_to @project
@@ -52,6 +53,6 @@ class ProjectsController < ApplicationController
 
   private
       def project_params
-        params.require(:project).permit(:title, :description, :author, :project_img)
+        params.require(:project).permit(:title, :description, :author, :category_id, :project_img)
       end
 end

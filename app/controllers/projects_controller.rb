@@ -1,7 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!
   def index
-    @projects = Project.all
+    if params[:category].blank?
+      @projects = Project.all
+    else
+      @category_id = Category.find_by(name: params[:category]).id
+      @projects = Project.where(:category_id => @category_id)
+    end
   end
 
   def show

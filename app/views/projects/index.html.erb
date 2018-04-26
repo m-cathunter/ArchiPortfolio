@@ -1,5 +1,9 @@
-<h1>List of projects</h1>
+<h1 class="current-category"><%= params[:category] %></h1>
 
+<% if @projects.count == 0 %>
+  <h1> There are no projects currently in this category </h1>
+
+<% else %>
 <div class="row">
 
   <% @projects.each do |project| %>
@@ -10,3 +14,4 @@
     </div>
   <% end %>
 </div>
+<% end %>

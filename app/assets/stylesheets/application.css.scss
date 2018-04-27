@@ -152,8 +152,8 @@ p.alert, p.notice {
 }
 
 .project-show {
-	height: 425px;
-	width: 575px;
+	max-height: 100%;
+	max-width: 100%;
 	@include background-tile;
 }
 

@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
-  
+  before_action :categories, only: [:new, :edit, :update, :create]
+
   def index
     if params[:category].blank?
       @projects = Project.all
@@ -16,12 +17,10 @@ class ProjectsController < ApplicationController
 
   def new
     @project = current_user.projects.build
-    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def edit
     @project = Project.find(params[:id])
-    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def create
@@ -31,7 +30,7 @@ class ProjectsController < ApplicationController
     if @project.save
       redirect_to @project
     else
-      render 'new'
+      render :new
     end
   end
 
@@ -58,6 +57,9 @@ class ProjectsController < ApplicationController
     #redirect_to @project
   #  @project = current_user.projects.build(project_params)
 
+  def categories
+    @categories ||= Category.all.map{|c|[c.name, c.id]}
+  end
 
   private
       def project_params

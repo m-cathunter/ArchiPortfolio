@@ -22,9 +22,8 @@
 @mixin background-tile {
 	box-sizing: border-box;
 	background-color: #fff;
-	border-radius: 5px;
 	box-shadow: 3px 3px 5px 6px #ccc;
-	padding: 1.5em 1.25em;
+	padding: 1.0em 1.0em;
 }
 
 
@@ -98,7 +97,6 @@ p.alert, p.notice {
 	background-color: #fff;
 	border: 1px solid darken(#f1c40f, 5%);
 	padding: 8px 20px;
-	border-radius: 5px;
 	font-family: 'Ubuntu', sans-serif;
 	&:hover {
 		text-decoration: none;
@@ -113,7 +111,6 @@ p.alert, p.notice {
 	background-color: #fff;
 	border: 1px solid #222;
 	padding: 8px 20px;
-	border-radius: 5px;
 	font-family: 'Ubuntu', sans-serif;
 	&:hover {
 		text-decoration: none;
@@ -145,8 +142,8 @@ p.alert, p.notice {
 /* Project styles */
 
 .project {
-	height: 250px;
-	width: 250px;
+	height: 350px;
+	width: 350px;
 	margin-bottom: 20px;
 	@include background-tile;
 }

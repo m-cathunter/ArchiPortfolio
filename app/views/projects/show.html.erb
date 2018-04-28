@@ -16,7 +16,7 @@
         <%= @project.author %>
       </h4>
 
-      <div class="links-btn-group">
+      <div class="links btn-group">
 
         <%= link_to 'Back', projects_path, class: "btn btn-custom" %>
 
@@ -43,11 +43,16 @@
 
     <div class="reviews">
 
-      <h1>Reviews</h1>
 
-      <%= render @project.reviews %>
+        <h1>Reviews</h1>
+
+        <%= render @project.reviews %>
 
     </div>
+
+      <div>
+        <%= link_to "Add Review", new_project_review_path(@project), class: "btn btn-custom" %>
+      </div>
 
   </div>
 

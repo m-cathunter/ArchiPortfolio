@@ -1,14 +1,19 @@
-<p><%= review.rating %></p>
-<p><%= review.comment %></p>
+<div class="review">
 
-<% if user_signed_in? %>
+  <p><%= review.rating %></p>
+  <p class="review-comment"><%= review.comment %></p>
 
-  <% if review.user_id == current_user.id %>
+  <% if user_signed_in? %>
 
-    <%= link_to 'Edit', edit_project_review_path(review.project, review), class: "btn btn-custom" %>
-    <%= link_to 'Delete', project_review_path(review.project, review), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
-    <%= link_to "Add Review", new_project_review_path(@project), class: "btn btn-custom" %>
+    <% if review.user_id == current_user.id %>
+
+    <div class="links btn-group">
+
+      <%= link_to 'Edit', edit_project_review_path(review.project, review), class: "btn btn-custom" %>
+      <%= link_to 'Delete', project_review_path(review.project, review), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+
+    <% end %>
 
   <% end %>
-
-<% end %>
+  
+</div>

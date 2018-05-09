@@ -11,10 +11,14 @@
         <%= @project.description %>
       </p>
 
+      <h2 class="avg-rating">Average Rating</h2>
+      <div class="average-review-rating" data-score=<%= @average_review %>></div>
+
       <h4 class="project-author">
       <strong>Author:</strong>
         <%= @project.author %>
       </h4>
+
 
       <div class="links btn-group">
 
@@ -31,6 +35,7 @@
                     data: { confirm: "Are you sure?" } %>
       </div>
 
+
     </div>
 
   </div>
@@ -45,6 +50,7 @@
 
 
         <h1>Reviews</h1>
+
 
         <%= render @project.reviews %>
 
@@ -70,5 +76,15 @@
 			return $(this).attr('data-score');
 		},
 		path: '/assets/'
+	});
+</script>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
 	});
 </script>

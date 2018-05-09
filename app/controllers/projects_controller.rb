@@ -13,6 +13,12 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    if @project.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @project.reviews.average(:rating).round(2)
+    end
+
   end
 
   def new

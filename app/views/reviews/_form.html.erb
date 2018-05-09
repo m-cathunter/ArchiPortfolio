@@ -1,8 +1,10 @@
 <%= form_for ([@project, @project.reviews.build]) do |f| %>
-  <p>
-  <%= f.label :rating %>
-  <%= f.text_field :rating %>
-  </p>
+
+  <div id="rating-form">
+
+    <label>Rating</label>
+
+  </div>
 
   <p>
   <%= f.label :comment %>
@@ -14,3 +16,10 @@
   </p>
 
 <% end %>
+
+<script>
+	$('#rating-form').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+</script>
